@@ -1,10 +1,6 @@
-# Astro Starter Kit: Minimal
+# Kussand - Astro Project
 
-```sh
-npm create astro@latest -- --template minimal
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Proyecto Astro con soporte para TypeScript.
 
 ## 🚀 Project Structure
 
