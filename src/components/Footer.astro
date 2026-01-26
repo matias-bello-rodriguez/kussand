@@ -3,11 +3,32 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="footer-content">
-    <div class="footer-left">
-      <p>&copy; {currentYear} Kussand.</p>
+  <div class="footer-grid">
+    <div class="footer-brand">
+       <p class="brand-tagline">Software con mentalidad de ingeniería.</p>
     </div>
-    <div class="footer-right">
+
+    <div class="footer-column">
+      <h3 class="column-title">Compañía</h3>
+      <ul class="footer-links">
+        <li><a href="/about">Quiénes somos</a></li>
+        <li><a href="/careers">Trabaja con nosotros</a></li>
+        <li><a href="/services">Servicios</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3 class="column-title">Contacto</h3>
+      <ul class="footer-contact">
+        <li><a href="mailto:hola@kussand.com">hola@kussand.com</a></li>
+        <li class="address">Santiago, Chile</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-content">
+      <p>&copy; {currentYear} Kussand SpA. Todos los derechos reservados.</p>
       <a href="/sitemap.xml" class="footer-link">Sitemap</a>
     </div>
   </div>
@@ -15,28 +36,95 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .site-footer {
-    padding: 2rem 1.5rem;
+    padding: 3rem 1.5rem 2rem;
     border-top: 1px solid var(--line-subtle);
-    background-color: var(--bg-main);
+    background-color: var(--bg-soft);
     color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .footer-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 300px;
+  }
+
+  .footer-logo {
+    width: 40px;
+    opacity: 0.8;
+  }
+
+  .brand-tagline {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-main);
+  }
+
+  .column-title {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  .footer-links, .footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-links a, .footer-contact a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover, .footer-contact a:hover {
+    color: var(--text-main);
+  }
+
+  .address {
+    color: var(--text-muted);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 2rem;
+  }
+
+  .footer-bottom-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
     font-size: 0.875rem;
   }
 
-  .footer-content {
-    max-width: 1600px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
 
-  .footer-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .footer-link:hover {
-    color: var(--text-main);
+    .footer-bottom-content {
+      flex-direction: row;
+    }
   }
 </style>

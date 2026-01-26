@@ -24,5 +24,35 @@ const { title } = Astro.props;
 		<Header />
 		<slot />
 		<Footer />
+		
+		<script>
+			// Global Scroll Reveal Animation
+			const observerOptions = {
+				root: null,
+				rootMargin: '0px',
+				threshold: 0.15 // Trigger when 15% of the element is visible
+			};
+
+			const observer = new IntersectionObserver((entries, observer) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						observer.unobserve(entry.target); // Run once
+					}
+				});
+			}, observerOptions);
+
+			// Observe all elements with .fade-in class
+			document.addEventListener('DOMContentLoaded', () => {
+				const elements = document.querySelectorAll('.fade-in');
+				elements.forEach(el => observer.observe(el));
+			});
+			
+			// Re-run for client-side navigation/swaps if any (Astro view transitions support)
+			document.addEventListener('astro:page-load', () => {
+				const elements = document.querySelectorAll('.fade-in');
+				elements.forEach(el => observer.observe(el));
+			});
+		</script>
 	</body>
 </html>
