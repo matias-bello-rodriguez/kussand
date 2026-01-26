@@ -1,0 +1,235 @@
+---
+---
+<dialog id="contact-modal" class="modal">
+  <div class="modal-content fade-in">
+    <div class="modal-header">
+      <h2 class="text-statement" style="font-size: 1.75rem;">Propuesta de Proyecto</h2>
+      <button id="close-modal" aria-label="Cerrar">✕</button>
+    </div>
+    
+    <p class="text-body" style="margin-bottom: 2rem; font-size: 1rem;">
+      Cuéntanos sobre tu operación y qué buscas construir.
+    </p>
+
+    <form class="contact-form" method="dialog">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" required placeholder="Tu nombre" />
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Corporativo</label>
+        <input type="email" id="email" name="email" required placeholder="nombre@empresa.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="company">Empresa / Organización</label>
+        <input type="text" id="company" name="company" placeholder="Nombre de tu empresa" />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Detalles del Proyecto</label>
+        <textarea id="message" name="message" rows="4" required placeholder="¿Cuál es el desafío operativo?"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="submit-btn">Enviar Propuesta</button>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('contact-modal') as HTMLDialogElement;
+  const closeBtn = document.getElementById('close-modal');
+  // Use class for multiple triggers
+  const openBtns = document.querySelectorAll('.trigger-contact-modal');
+  const form = dialog?.querySelector('form');
+
+  if (dialog) {
+    // Open logic
+    openBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dialog.showModal();
+        document.body.style.overflow = 'hidden'; // Lock scroll
+      });
+    });
+
+    // Close logic
+    const closeDialog = () => {
+      dialog.close();
+      document.body.style.overflow = ''; // Restore scroll
+    };
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeDialog);
+    }
+
+    dialog.addEventListener('click', (e) => {
+      const rect = dialog.getBoundingClientRect();
+      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isInDialog) {
+        closeDialog();
+      }
+    });
+    
+    // Handle escape key
+    dialog.addEventListener('close', () => {
+        document.body.style.overflow = '';
+    });
+  }
+  
+  // Prevent actual submission for demo purposes
+  if (form) {
+      form.addEventListener('submit', (e) => {
+          // If using method="dialog" it doesn't submit, but let's be sure.
+          // For a real implementation, this would handle fetch/XHR
+      });
+  }
+</script>
+
+<style>
+  .modal {
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    background: transparent;
+    max-width: 90vw;
+    width: 600px;
+    
+    /* Centering */
+    margin: auto;
+    position: fixed;
+    inset: 0;
+
+    /* Initial state for animation */
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  /* When open */
+  .modal[open] {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    animation: modal-entry 0.4s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+  }
+  
+  /* Native dialog backdrop styling */
+  .modal::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    animation: backdrop-entry 0.4s ease forwards;
+  }
+
+  @keyframes modal-entry {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes backdrop-entry {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal-content {
+    background: var(--bg-main);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    position: relative;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  #close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  #close-modal:hover {
+    color: var(--text-main);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-main);
+    letter-spacing: 0.02em;
+  }
+
+  input, textarea {
+    padding: 1rem;
+    border: 1px solid var(--line-subtle);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: var(--bg-soft);
+    color: var(--text-main);
+    transition: all 0.2s;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--text-main);
+    background: var(--bg-main);
+  }
+
+  .submit-btn {
+    display: inline-flex;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background-color: var(--text-main);
+    color: var(--bg-main);
+    border: none;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .submit-btn:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .modal-content {
+      padding: 1.5rem;
+    }
+  }
+</style>

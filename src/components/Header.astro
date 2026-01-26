@@ -1,0 +1,229 @@
+---
+---
+<header class="fixed-header">
+  <div class="header-content">
+    <div class="logo-container">
+      <a href="/" aria-label="Inicio">
+        <img src="/favicon.png" alt="Kussand Logo" class="logo" />
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="nav-menu">
+      <a href="/" class="nav-link">Inicio</a>
+      <a href="#services" class="nav-link">Servicios</a>
+      <a href="#about" class="nav-link">Quiénes somos</a>
+      <a href="#careers" class="nav-link">Trabaja con nosotros</a>
+      <button class="nav-link highlight trigger-contact-modal">Contacto</button>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
+      menuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      document.body.style.overflow = isExpanded ? '' : 'hidden'; // Prevent scrolling when menu is open
+    });
+
+    // Close menu when clicking a link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+</script>
+
+<style>
+  .fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    z-index: 1000;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .header-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Reset default logo styles for flex alignment */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 1002; /* Above mobile menu */
+  }
+
+  .logo-container a {
+    display: block;
+    line-height: 0;
+  }
+
+  .logo {
+    width: 120px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+    transition: width 0.3s ease;
+  }
+
+  /* Hamburger Menu Button */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002; /* Above mobile menu */
+  }
+
+  .hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-main);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Hamburger Animation */
+  .menu-toggle.active .hamburger-line:first-child {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.active .hamburger-line:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Menu Styles */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-main);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden; /* Hide completely */
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1001;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 1.5rem; /* Larger for mobile */
+    font-weight: 500;
+    transition: color 0.2s ease;
+    opacity: 0.8;
+  }
+
+  /* Reset button styles */
+  button.nav-link {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link:hover {
+    opacity: 1;
+    color: var(--accent);
+  }
+
+  .nav-link.highlight {
+    padding: 0.75rem 2rem;
+    background-color: var(--text-main);
+    color: var(--bg-main);
+    border-radius: 9999px;
+    opacity: 1;
+    margin-top: 1rem;
+  }
+  
+  .nav-link.highlight:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 768px) {
+    .fixed-header {
+      padding: 1.5rem 2rem;
+    }
+
+    .logo {
+      width: 180px;
+      height: 75px;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .nav-menu {
+      position: static;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      flex-direction: row;
+      justify-content: flex-end;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      padding: 0;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+    }
+
+    .nav-link.highlight {
+      margin-top: 0;
+      padding: 0.5rem 1.25rem;
+    }
+  }
+</style>

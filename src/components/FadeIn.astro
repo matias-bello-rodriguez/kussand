@@ -1,0 +1,14 @@
+---
+interface Props {
+  delay?: "0" | "100" | "200" | "300" | "500";
+  className?: string;
+}
+
+const { delay = "0", className = "" } = Astro.props;
+
+const delayClass = delay !== "0" ? `delay-${delay}` : "";
+---
+
+<div class:list={["fade-in", delayClass, className]}>
+  <slot />
+</div>

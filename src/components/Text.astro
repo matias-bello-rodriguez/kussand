@@ -1,0 +1,33 @@
+---
+interface Props {
+  as?: "h1" | "h2" | "h3" | "p" | "span" | "div";
+  variant?: "hero" | "statement" | "body" | "sub" | "label";
+  className?: string;
+}
+
+const { as: Tag = "p", variant = "body", className = "" } = Astro.props;
+
+const variants = {
+  hero: "text-hero",
+  statement: "text-statement",
+  body: "text-body",
+  sub: "text-sub",
+  label: "text-label"
+};
+
+const variantClass = variants[variant] || "";
+---
+
+<Tag class:list={[variantClass, className]}>
+  <slot />
+</Tag>
+
+<style>
+  .text-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+</style>

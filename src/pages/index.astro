@@ -1,17 +1,137 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import Text from '../components/Text.astro';
+import Button from '../components/Button.astro';
+import Editorial from '../components/Editorial.astro';
+import VerticalList from '../components/VerticalList.astro';
+import FilterList from '../components/FilterList.astro';
+import FadeIn from '../components/FadeIn.astro';
+import ContactModal from '../components/ContactModal.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Kussand | Software con mentalidad de ingeniería">
+	<main>
+		<!-- 1. Hero -->
+		<Section fullscreen backgroundImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop">
+			<FadeIn>
+				<Text as="h1" variant="hero" className="mb-8">Ingeniería hecha código.</Text>
+				<Text variant="sub">Traemos el rigor de la construcción al mundo digital.</Text>
+			</FadeIn>
+		</Section>
+
+		<!-- 2. Statement -->
+		<Section fullscreen backgroundImage="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2000&auto=format&fit=crop" overlayTheme="dark">
+			<FadeIn>
+				<Text variant="statement">
+					“El software mal planeado<br />
+					<span style="color: var(--text-muted)">es una deuda técnica impagable.”</span>
+				</Text>
+			</FadeIn>
+		</Section>
+
+		<!-- 3. Editorial Block -->
+		<Section>
+			<Editorial imageSrc="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop">
+				<Text variant="body">
+					Venimos de la ingeniería civil y los procesos industriales. 
+					Sabemos que un error de cálculo se paga con dinero.
+					<br/><br/>
+					Aplicamos esa misma disciplina al código.
+				</Text>
+			</Editorial>
+		</Section>
+
+		<!-- 4. Enfoque sistémico -->
+		<Section fullscreen className="text-center" backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop" overlayTheme="light">
+			<FadeIn>
+				<Text variant="statement" className="mb-4">Tu empresa es un sistema complejo.</Text>
+				<Text variant="statement" className="mb-12" style="color: var(--text-muted)">Tu software no puede ser un juguete.</Text>
+				<Text variant="sub">Arquitectura · Datos · Escalabilidad</Text>
+			</FadeIn>
+		</Section>
+
+		<!-- 5. Capas implícitas -->
+		<Section dark>
+			<div class="flex flex-col gap-24">
+				<FadeIn>
+					<Text variant="statement">Una web bonita sin ventas es un adorno.</Text>
+				</FadeIn>
+				<FadeIn delay="100">
+					<Text variant="statement" style="opacity: 0.7">Un ERP desconectado es burocracia digital.</Text>
+				</FadeIn>
+				<FadeIn delay="200">
+					<Text variant="statement" style="opacity: 0.4">Una app que nadie usa es basura.</Text>
+				</FadeIn>
+			</div>
+		</Section>
+
+		<!-- 6. Odoo reposicionado -->
+		<Section>
+			<Editorial reversed imageSrc="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
+				<Text variant="statement" className="mb-6">Odoo: Potente pero peligroso.</Text>
+				<Text variant="body">Es la herramienta más completa del mundo, o la más caótica. Depende de quién la implemente. Nosotros la domamos.</Text>
+			</Editorial>
+		</Section>
+
+		<!-- 7. Método -->
+		<Section fullscreen backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2000&auto=format&fit=crop" overlayTheme="dark">
+			<div class="flex justify-center">
+				<VerticalList items={['Auditar', 'Estructurar', 'Desarrollar', 'Optimizar']} />
+			</div>
+		</Section>
+
+		<!-- 8. Filtro elegante -->
+		<Section>
+			<div class="grid md:grid-cols-2 gap-16">
+				<FilterList 
+					title="Trabajamos con:"
+					items={[
+						"Industrias complejas",
+						"Logística y Operaciones",
+						"Constructoras e Ingeniería"
+					]}
+				/>
+				<FilterList 
+					title="Evitamos:"
+					items={[
+						"Ideas sin modelo de negocio",
+						"MVPs descartables",
+						"Estética sobre función"
+					]}
+				/>
+			</div>
+		</Section>
+
+		<!-- 9. Cierre + CTA -->
+		<Section fullscreen backgroundImage="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop" overlayTheme="light">
+			<FadeIn className="text-center">
+				<Text variant="statement" className="mb-12">Deja de gastar en software. <br/> Empieza a invertir en estructura.</Text>
+				<div class="mt-8">
+					<Button id="open-contact-modal" className="trigger-contact-modal">Agenda una consultoría técnica</Button>
+				</div>
+			</FadeIn>
+		</Section>
+		
+		<ContactModal />
+	</main>
+</Layout>
+
+<style>
+	.mb-4 { margin-bottom: 1rem; }
+	.mb-6 { margin-bottom: 1.5rem; }
+	.mb-8 { margin-bottom: 2rem; }
+	.mb-12 { margin-bottom: 3rem; }
+	.mt-8 { margin-top: 2rem; }
+	.gap-16 { gap: 4rem; }
+	.gap-24 { gap: 6rem; }
+	.text-center { text-align: center; }
+	.grid { display: grid; }
+	.flex { display: flex; }
+	.flex-col { flex-direction: column; }
+	.justify-center { justify-content: center; }
+	
+	@media (min-width: 768px) {
+		.md\:grid-cols-2 { grid-template-columns: 1fr 1fr; }
+	}
+</style>
