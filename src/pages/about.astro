@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import FadeIn from '../components/FadeIn.astro';
+import Text from '../components/Text.astro';
+import Button from '../components/Button.astro';
+import ContactModal from '../components/ContactModal.astro';
+import Editorial from '../components/Editorial.astro';
+---
+
+<Layout title="Quiénes Somos | Kussand">
+	<main>
+		<Section paddingTop="15vh">
+			<FadeIn>
+				<Text variant="label" className="mb-4">Quiénes Somos</Text>
+				<Text variant="statement" className="mb-8">
+					Más que desarrolladores, somos ingenieros de procesos.
+				</Text>
+			</FadeIn>
+		</Section>
+
+        <Section>
+			<Editorial imageSrc="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop">
+				<Text variant="subheading" className="mb-4">Nuestra Filosofía</Text>
+				<Text variant="body" className="mb-6">
+					Kussand nació de la frustración con las consultoras tradicionales. Vimos demasiados proyectos donde la estética primaba sobre la funcionalidad, y donde se vendían soluciones genéricas a problemas específicos.
+				</Text>
+                <Text variant="body" className="mb-6">
+                    Creemos en el software como una herramienta de apalancamiento operativo. No escribimos código por escribirlo; escribimos código para resolver ineficiencias, reducir costos y escalar operaciones.
+                </Text>
+			</Editorial>
+        </Section>
+        
+        <Section>
+            <Editorial reversed imageSrc="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop">
+                 <Text variant="subheading" className="mb-4">El equipo</Text>
+                 <Text variant="body" className="mb-6">
+                    Somos un equipo pequeño y altamente especializado. No tenemos gerentes de proyecto ni intermediarios. Hablarás directamente con quien está construyendo tu solución.
+                 </Text>
+                 <Text variant="body">
+                    Ingenieros senior con experiencia en sistemas críticos. Preferimos la calidad a la cantidad, y eso se refleja en cada línea de código que entregamos.
+                 </Text>
+            </Editorial>
+        </Section>
+
+		<Section>
+			<div class="mt-8 text-center">
+				<Button id="open-contact-modal" className="trigger-contact-modal">Hablemos de tu proyecto</Button>
+			</div>
+		</Section>
+
+		<ContactModal />
+	</main>
+</Layout>
+
+<style>
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    .mt-8 { margin-top: 2rem; }
+    .max-w-2xl { max-width: 42rem; margin-inline: auto; }
+    .text-center { text-align: center; }
+</style>
