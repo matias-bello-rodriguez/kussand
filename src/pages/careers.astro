@@ -11,53 +11,63 @@ import Editorial from '../components/Editorial.astro';
 <Layout title="Trabaja con Nosotros | Kussand">
 	<main>
 		<Section paddingTop="15vh">
-			<Editorial imageSrc="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1200&auto=format&fit=crop">
-				<Text variant="label" className="mb-4">Carreras</Text>
-				<Text variant="statement" className="mb-8">
-					Mentes analíticas que disfruten la complejidad.
-				</Text>
-                <Text variant="body" className="mb-6">
-					No buscamos "rockstars" ni ninjas. Buscamos ingenieros serios que quieran construir software robusto y duradero en un entorno de alto rendimiento.
-				</Text>
-                <Text variant="body">
-                    Valoramos la autonomía, la comunicación clara y el código aburrido pero confiable. Si disfrutas investigando problemas profundos, este es tu lugar.
-                </Text>
-			</Editorial>
+			<FadeIn>
+				<Editorial imageSrc="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1200&auto=format&fit=crop">
+					<Text variant="label" className="mb-4">Carreras</Text>
+					<Text variant="statement" className="mb-8">
+						Mentes analíticas que disfrutan resolver problemas reales.
+					</Text>
+                		<Text variant="body" className="mb-6">
+						Buscamos ingenieros rigurosos que quieran construir software robusto y duradero en un entorno colaborativo.
+					</Text>
+                		<Text variant="body">
+                    	Valoramos la autonomía, la comunicación clara y la calidad técnica. Si te motivan los desafíos complejos, conversemos.
+                		</Text>
+				</Editorial>
+			</FadeIn>
 		</Section>
 
         <Section>
             <FadeIn>
                 <Text variant="subheading" className="mb-8">Posiciones Abiertas</Text>
-                <div class="job-list">
+            </FadeIn>
+            <div class="job-list">
+                <FadeIn delay="100">
                     <div class="job-item">
                         <div class="job-header">
                             <Text variant="subheading" className="job-title">Senior Full Stack Engineer</Text>
                             <span class="job-tag">Remoto</span>
                         </div>
                         <Text variant="body" className="mt-2 text-muted max-w-2xl">
-                            Liderarás el desarrollo de aplicaciones críticas para nuestros clientes. Necesitas experiencia profunda en TypeScript, Node.js y bases de datos relacionales.
+                            Liderarás el desarrollo de productos críticos para clientes. Buscamos experiencia sólida en TypeScript, Node.js y bases de datos relacionales.
                         </Text>
                     </div>
-                    
-                     <div class="job-item">
+                </FadeIn>
+                
+                <FadeIn delay="200">
+                    <div class="job-item">
                         <div class="job-header">
                             <Text variant="subheading" className="job-title">Backend Architect</Text>
                             <span class="job-tag">Híbrido</span>
                         </div>
                         <Text variant="body" className="mt-2 text-muted max-w-2xl">
-                             Diseño de sistemas distribuidos y APIs de alto rendimiento. Foco en escalabilidad e integridad de datos.
+                             Diseñarás sistemas distribuidos y APIs de alto rendimiento, con foco en escalabilidad e integridad de datos.
                         </Text>
                     </div>
-                </div>
-            </FadeIn>
+                </FadeIn>
+            </div>
         </Section>
 
 		<Section>
              <div class="text-center">
-                <Text variant="body" className="mb-4">¿No ves tu rol pero crees que puedes aportar?</Text>
-                <div class="mt-2">
-                    <Button href="mailto:careers@kussand.com">Envíanos tu CV</Button>
-                </div>
+                <FadeIn>
+                    <Text variant="body" className="mb-4">¿No ves tu rol pero crees que puedes aportar?</Text>
+                </FadeIn>
+                <FadeIn delay="100">
+                    <div class="mt-2">
+						<Button href="mailto:careers@kussand.com">Envíanos tu CV</Button>
+					</div>
+                </FadeIn>
             </div>
 		</Section>
 	</main>

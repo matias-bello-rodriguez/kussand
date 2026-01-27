@@ -14,38 +14,44 @@ import Editorial from '../components/Editorial.astro';
 			<FadeIn>
 				<Text variant="label" className="mb-4">Quiénes Somos</Text>
 				<Text variant="statement" className="mb-8">
-					Más que desarrolladores, somos ingenieros de procesos.
+					Somos un equipo de ingeniería enfocado en resultados.
 				</Text>
 			</FadeIn>
 		</Section>
 
         <Section>
-			<Editorial imageSrc="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop">
-				<Text variant="subheading" className="mb-4">Nuestra Filosofía</Text>
-				<Text variant="body" className="mb-6">
-					Kussand nació de la frustración con las consultoras tradicionales. Vimos demasiados proyectos donde la estética primaba sobre la funcionalidad, y donde se vendían soluciones genéricas a problemas específicos.
-				</Text>
-                <Text variant="body" className="mb-6">
-                    Creemos en el software como una herramienta de apalancamiento operativo. No escribimos código por escribirlo; escribimos código para resolver ineficiencias, reducir costos y escalar operaciones.
-                </Text>
-			</Editorial>
+			<FadeIn>
+				<Editorial imageSrc="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop">
+					<Text variant="subheading" className="mb-4">Nuestra Filosofía</Text>
+					<Text variant="body" className="mb-6">
+						Creemos en el software como motor de eficiencia y crecimiento. Diseñamos soluciones que ordenan procesos, reducen fricción y permiten escalar con claridad.
+					</Text>
+                		<Text variant="body" className="mb-6">
+                    	Trabajamos con visión de negocio y criterio técnico para que cada proyecto sea sostenible en el tiempo.
+                		</Text>
+				</Editorial>
+			</FadeIn>
         </Section>
         
         <Section>
-            <Editorial reversed imageSrc="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop">
-                 <Text variant="subheading" className="mb-4">El equipo</Text>
-                 <Text variant="body" className="mb-6">
-                    Somos un equipo pequeño y altamente especializado. No tenemos gerentes de proyecto ni intermediarios. Hablarás directamente con quien está construyendo tu solución.
-                 </Text>
-                 <Text variant="body">
-                    Ingenieros senior con experiencia en sistemas críticos. Preferimos la calidad a la cantidad, y eso se refleja en cada línea de código que entregamos.
-                 </Text>
-            </Editorial>
+            <FadeIn>
+                <Editorial reversed imageSrc="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop">
+                     <Text variant="subheading" className="mb-4">El equipo</Text>
+                     <Text variant="body" className="mb-6">
+                        Somos un equipo pequeño y especializado. Trabajarás directo con quienes diseñan y construyen tu solución.
+                     </Text>
+                     <Text variant="body">
+                        Ingenieros senior con experiencia en sistemas críticos, enfocados en calidad, claridad y continuidad operativa.
+                     </Text>
+                </Editorial>
+            </FadeIn>
         </Section>
 
 		<Section>
 			<div class="mt-8 text-center">
-				<Button id="open-contact-modal" className="trigger-contact-modal">Hablemos de tu proyecto</Button>
+				<FadeIn>
+					<Button id="open-contact-modal" className="trigger-contact-modal">Hablemos de tu proyecto</Button>
+				</FadeIn>
 			</div>
 		</Section>
 

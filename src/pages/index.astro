@@ -15,8 +15,10 @@ import ContactModal from '../components/ContactModal.astro';
 		<!-- 1. Hero -->
 		<Section fullscreen backgroundImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop">
 			<FadeIn>
-				<Text as="h1" variant="hero" className="mb-8">Ingeniería hecha código.</Text>
-				<Text variant="sub">Traemos el rigor de la construcción al mundo digital.</Text>
+				<Text as="h1" variant="hero" className="mb-8">Ideas claras, software real.</Text>
+			</FadeIn>
+			<FadeIn delay="100">
+				<Text variant="sub">Kussand TI transforma necesidades de negocio en soluciones a medida.</Text>
 			</FadeIn>
 		</Section>
 
@@ -24,29 +26,32 @@ import ContactModal from '../components/ContactModal.astro';
 		<Section fullscreen backgroundImage="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2000&auto=format&fit=crop" overlayTheme="dark">
 			<FadeIn>
 				<Text variant="statement">
-					“El software mal planeado<br />
-					<span style="color: var(--text-muted)">es una deuda técnica impagable.”</span>
+					“Planificar bien acelera todo.”<br />
+					<span style="color: var(--text-muted)">Arquitectura sólida, ejecución eficiente.</span>
 				</Text>
 			</FadeIn>
 		</Section>
 
 		<!-- 3. Editorial Block -->
 		<Section>
-			<Editorial imageSrc="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop">
-				<Text variant="body">
-					Venimos de la ingeniería civil y los procesos industriales. 
-					Sabemos que un error de cálculo se paga con dinero.
-					<br/><br/>
-					Aplicamos esa misma disciplina al código.
-				</Text>
-			</Editorial>
+			<FadeIn>
+				<Editorial imageSrc="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop">
+					<Text variant="body">
+						Aplicamos enfoque de ingeniería a cada proyecto para entregar software confiable y escalable.
+					</Text>
+				</Editorial>
+			</FadeIn>
 		</Section>
 
 		<!-- 4. Enfoque sistémico -->
 		<Section fullscreen className="text-center" backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop" overlayTheme="light">
 			<FadeIn>
-				<Text variant="statement" className="mb-4">Tu empresa es un sistema complejo.</Text>
-				<Text variant="statement" className="mb-12" style="color: var(--text-muted)">Tu software no puede ser un juguete.</Text>
+				<Text variant="statement" className="mb-4">Software alineado al negocio.</Text>
+			</FadeIn>
+			<FadeIn delay="100">
+				<Text variant="statement" className="mb-12" style="color: var(--text-muted)">Arquitectura que crece contigo.</Text>
+			</FadeIn>
+			<FadeIn delay="200">
 				<Text variant="sub">Arquitectura · Datos · Escalabilidad</Text>
 			</FadeIn>
 		</Section>
@@ -55,62 +60,72 @@ import ContactModal from '../components/ContactModal.astro';
 		<Section dark>
 			<div class="flex flex-col gap-24">
 				<FadeIn>
-					<Text variant="statement">Una web bonita sin ventas es un adorno.</Text>
+					<Text variant="statement">Resultados medibles desde el diseño.</Text>
 				</FadeIn>
 				<FadeIn delay="100">
-					<Text variant="statement" style="opacity: 0.7">Un ERP desconectado es burocracia digital.</Text>
+					<Text variant="statement" style="opacity: 0.7">Procesos conectados, datos confiables.</Text>
 				</FadeIn>
 				<FadeIn delay="200">
-					<Text variant="statement" style="opacity: 0.4">Una app que nadie usa es basura.</Text>
+					<Text variant="statement" style="opacity: 0.4">Experiencia de usuario clara y efectiva.</Text>
 				</FadeIn>
 			</div>
 		</Section>
 
 		<!-- 6. Odoo reposicionado -->
 		<Section>
-			<Editorial reversed imageSrc="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
-				<Text variant="statement" className="mb-6">Odoo: Potente pero peligroso.</Text>
-				<Text variant="body">Es la herramienta más completa del mundo, o la más caótica. Depende de quién la implemente. Nosotros la domamos.</Text>
-			</Editorial>
+			<FadeIn>
+				<Editorial reversed imageSrc="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop">
+					<Text variant="statement" className="mb-6">ERP con implementación experta.</Text>
+					<Text variant="body">Configuramos, integramos y optimizamos para maximizar el valor operativo.</Text>
+				</Editorial>
+			</FadeIn>
 		</Section>
 
 		<!-- 7. Método -->
 		<Section fullscreen backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2000&auto=format&fit=crop" overlayTheme="dark">
-			<div class="flex justify-center">
+			<FadeIn className="flex justify-center">
 				<VerticalList items={['Auditar', 'Estructurar', 'Desarrollar', 'Optimizar']} />
-			</div>
+			</FadeIn>
 		</Section>
 
 		<!-- 8. Filtro elegante -->
 		<Section>
 			<div class="grid md:grid-cols-2 gap-16">
-				<FilterList 
-					title="Trabajamos con:"
-					items={[
-						"Industrias complejas",
-						"Logística y Operaciones",
-						"Constructoras e Ingeniería"
-					]}
-				/>
-				<FilterList 
-					title="Evitamos:"
-					items={[
-						"Ideas sin modelo de negocio",
-						"MVPs descartables",
-						"Estética sobre función"
-					]}
-				/>
+				<FadeIn>
+					<FilterList 
+						title="Trabajamos con:"
+						items={[
+							"Industrias complejas",
+							"Logística y Operaciones",
+							"Constructoras e Ingeniería"
+						]}
+					/>
+				</FadeIn>
+				<FadeIn delay="100">
+					<FilterList 
+						title="Evitamos:"
+						items={[
+							"Ideas sin modelo de negocio",
+							"MVPs descartables",
+							"Estética sobre función"
+						]}
+					/>
+				</FadeIn>
 			</div>
 		</Section>
 
 		<!-- 9. Cierre + CTA -->
 		<Section fullscreen backgroundImage="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop" overlayTheme="light">
-			<FadeIn className="text-center">
-				<Text variant="statement" className="mb-12">Deja de gastar en software. <br/> Empieza a invertir en estructura.</Text>
-				<div class="mt-8">
-					<Button id="open-contact-modal" className="trigger-contact-modal">Agenda una consultoría técnica</Button>
-				</div>
-			</FadeIn>
+			<div class="text-center">
+				<FadeIn>
+					<Text variant="statement" className="mb-12">Convirtamos tu idea en software listo para operar.</Text>
+				</FadeIn>
+				<FadeIn delay="100">
+					<div class="mt-8">
+						<Button id="open-contact-modal" className="trigger-contact-modal">Agenda una consultoría técnica</Button>
+					</div>
+				</FadeIn>
+			</div>
 		</Section>
 		
 		<ContactModal />
