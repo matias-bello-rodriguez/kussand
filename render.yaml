@@ -2,5 +2,6 @@ services:
   - type: web
     name: kussand
     env: static
+    autoDeploy: true 
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
