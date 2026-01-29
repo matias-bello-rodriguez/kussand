@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -25,17 +24,3 @@ jobs:
 
     - name: Build project
       run: npm run build
-
-  # Optional: If you want GitHub to trigger the Render deploy strictly after build passes.
-  # Note: For this to work, you need to:
-  # 1. Go to Render Dashboard -> Settings -> Auto Deploy -> Toggle "No"
-  # 2. Copy "Deploy Hook URL"
-  # 3. Add it to GitHub Secrets as RENDER_DEPLOY_HOOK_URL
-  #
-  # deploy:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   if: github.ref == 'refs/heads/main'
-  #   steps:
-  #     - name: Deploy to Render
-  #       run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
