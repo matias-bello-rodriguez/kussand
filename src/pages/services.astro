@@ -10,7 +10,7 @@ import Editorial from '../components/Editorial.astro';
 
 <Layout title="Servicios | Kussand">
 	<main>
-		<Section paddingTop="15vh">
+        <Section paddingTop="clamp(10rem, 18vh, 14rem)" className="services-hero">
             <FadeIn>
                 <Editorial imageSrc="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop">
                     <Text variant="label" className="mb-4">Nuestros Servicios</Text>
@@ -95,4 +95,5 @@ import Editorial from '../components/Editorial.astro';
         padding-top: 1rem;
         border-top: 1px solid var(--line-subtle);
     }
+
 </style>

@@ -10,16 +10,18 @@ import Editorial from '../components/Editorial.astro';
 
 <Layout title="Quiénes Somos | Kussand">
 	<main>
-		<Section paddingTop="15vh">
+		<Section paddingTop="clamp(10rem, 18vh, 14rem)" className="about-hero">
 			<FadeIn>
-				<Text variant="label" className="mb-4">Quiénes Somos</Text>
-				<Text variant="statement" className="mb-8">
-					Somos un equipo de ingeniería enfocado en resultados.
-				</Text>
+				<div class="about-hero-content">
+					<Text variant="label" className="mb-4"></Text>
+					<Text variant="statement">
+						Somos un equipo de ingeniería enfocado en resultados.
+					</Text>
+				</div>
 			</FadeIn>
 		</Section>
 
-        <Section>
+		<Section className="about-section-tight about-section-first">
 			<FadeIn>
 				<Editorial imageSrc="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop">
 					<Text variant="subheading" className="mb-4">Nuestra Filosofía</Text>
@@ -33,7 +35,7 @@ import Editorial from '../components/Editorial.astro';
 			</FadeIn>
         </Section>
         
-        <Section>
+		<Section className="about-section-tight">
             <FadeIn>
                 <Editorial reversed imageSrc="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop">
                      <Text variant="subheading" className="mb-4">El equipo</Text>
@@ -66,4 +68,26 @@ import Editorial from '../components/Editorial.astro';
     .mt-8 { margin-top: 2rem; }
     .max-w-2xl { max-width: 42rem; margin-inline: auto; }
     .text-center { text-align: center; }
+
+	.about-hero .about-hero-content {
+		max-width: 42rem;
+	}
+
+	.about-hero {
+		padding-bottom: 0;
+	}
+
+	.about-section-tight {
+		padding-top: clamp(2rem, 4vw, 3.5rem);
+		padding-bottom: clamp(2rem, 4vw, 3.5rem);
+	}
+
+	.about-section-first {
+		padding-top: 0;
+		margin-top: clamp(-8rem, -9vw, -7rem);
+	}
+
+	.about-section-tight .editorial-grid {
+		gap: clamp(2rem, 4vw, 3.5rem);
+	}
 </style>
