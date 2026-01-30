@@ -1,10 +1,9 @@
-// Replace this with your actual domain
 const SITE_URL = "https://kussand.com";
 
 const pages = [
   "",
-  "services",
-  "about",
+  "servicios",
+  "quienes-somos",
   "careers"
 ];
 
@@ -16,7 +15,7 @@ ${pages.map((page) => {
     return `  <url>
     <loc>${SITE_URL}/${route}</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>${page === "" ? "daily" : "weekly"}</changefreq>
     <priority>${page === "" ? "1.0" : "0.8"}</priority>
   </url>`;
 }).join("\n")}

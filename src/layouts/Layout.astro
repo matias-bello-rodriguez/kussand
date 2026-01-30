@@ -5,20 +5,45 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
+	description?: string;
+	image?: string;
+	canonical?: string;
 }
 
-const { title } = Astro.props;
+const { 
+	title, 
+	description = "Software con mentalidad de ingeniería. Diseñamos soluciones que ordenan procesos, mejoran el control operativo y generan resultados medibles.",
+	image = "/og-image.jpg",
+	canonical
+} = Astro.props;
+
+const siteUrl = "https://kussand.com";
+const canonicalURL = canonical || new URL(Astro.url.pathname, siteUrl).toString();
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Software con mentalidad de ingeniería." />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="/favicon.ico" sizes="any" />
 		<link rel="icon" type="image/png" href="/favicon.png" sizes="256x256" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, siteUrl)} />
+
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, siteUrl)} />
+
 		<title>{title}</title>
 	</head>
 	<body>
