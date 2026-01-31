@@ -7,7 +7,7 @@ interface Props {
 const { imageSrc, reversed = false } = Astro.props;
 ---
 
-<div class:list={["editorial-grid fade-in", reversed && "reversed"]}>
+<div class:list={["editorial-grid", reversed && "reversed"]}>
   <div class="image-container">
     <div class="window-header">
       <span class="dot red"></span>
@@ -28,7 +28,7 @@ const { imageSrc, reversed = false } = Astro.props;
   .editorial-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
   }
 
@@ -92,7 +92,7 @@ const { imageSrc, reversed = false } = Astro.props;
   @media (min-width: 768px) {
     .editorial-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      gap: 3rem;
     }
 
     .editorial-grid.reversed {
@@ -102,11 +102,11 @@ const { imageSrc, reversed = false } = Astro.props;
     .editorial-grid.reversed .content-container {
       direction: ltr; /* Reset text direction */
       padding-left: 0;
-      padding-right: 2rem;
+      padding-right: 1.5rem;
     }
     
     .content-container {
-      padding-left: 2rem;
+      padding-left: 1.5rem;
     }
   }
 </style>

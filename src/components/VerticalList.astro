@@ -8,7 +8,7 @@ const { items } = Astro.props;
 
 <div class="vertical-list">
   {items.map((item, index) => (
-    <div class="list-item fade-in" style={`animation-delay: ${index * 0.1}s`}>
+    <div class="list-item fade-in">
       {item}
     </div>
   ))}

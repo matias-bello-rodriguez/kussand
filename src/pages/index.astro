@@ -23,7 +23,7 @@ import ContactModal from '../components/ContactModal.astro';
 		</Section>
 
 		<!-- 2. Statement -->
-		<Section fullscreen backgroundImage="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2000&auto=format&fit=crop" overlayTheme="dark">
+		<Section backgroundImage="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2000&auto=format&fit=crop" overlayTheme="dark">
 			<FadeIn>
 				<Text variant="statement">
 					“Planificar bien acelera todo.”<br />
@@ -44,7 +44,7 @@ import ContactModal from '../components/ContactModal.astro';
 		</Section>
 
 		<!-- 4. Enfoque sistémico -->
-		<Section fullscreen className="text-center" backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop" overlayTheme="light">
+		<Section className="text-center" backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop" overlayTheme="light">
 			<FadeIn>
 				<Text variant="statement" className="mb-4">Software alineado al negocio.</Text>
 			</FadeIn>
@@ -58,7 +58,7 @@ import ContactModal from '../components/ContactModal.astro';
 
 		<!-- 5. Capas implícitas -->
 		<Section dark>
-			<div class="flex flex-col gap-24">
+			<div class="flex flex-col gap-12">
 				<FadeIn>
 					<Text variant="statement">Resultados medibles desde el diseño.</Text>
 				</FadeIn>
@@ -68,6 +68,44 @@ import ContactModal from '../components/ContactModal.astro';
 				<FadeIn delay="200">
 					<Text variant="statement" style="opacity: 0.4">Experiencia de usuario clara y efectiva.</Text>
 				</FadeIn>
+			</div>
+		</Section>
+
+		<!-- 6. Imagen + texto profesional -->
+		<Section>
+			<div class="showcase-header">
+				<FadeIn>
+					<Text variant="statement" className="mb-6">Profesional, claro y con foco operativo.</Text>
+				</FadeIn>
+			</div>
+			<div class="showcase-list">
+				<div class="showcase-item fade-in">
+					<div class="showcase-image">
+						<img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1400&auto=format&fit=crop" alt="Equipo analizando indicadores" loading="lazy" />
+					</div>
+					<div class="showcase-copy">
+						<Text variant="statement" className="mb-4">Decisiones con visibilidad real.</Text>
+						<Text variant="body">Paneles ejecutivos con datos confiables y accionables.</Text>
+					</div>
+				</div>
+				<div class="showcase-item fade-in">
+					<div class="showcase-image">
+						<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1400&auto=format&fit=crop" alt="Arquitectura y planificación" loading="lazy" />
+					</div>
+					<div class="showcase-copy">
+						<Text variant="statement" className="mb-4">Arquitectura que evita retrabajo.</Text>
+						<Text variant="body">Diseño técnico para crecer sin fricción ni sorpresas.</Text>
+					</div>
+				</div>
+				<div class="showcase-item fade-in">
+					<div class="showcase-image">
+						<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1400&auto=format&fit=crop" alt="Equipo trabajando con procesos" loading="lazy" />
+					</div>
+					<div class="showcase-copy">
+						<Text variant="statement" className="mb-4">Operación conectada.</Text>
+						<Text variant="body">Flujos claros entre áreas para entregar resultados consistentes.</Text>
+					</div>
+				</div>
 			</div>
 		</Section>
 
@@ -82,7 +120,7 @@ import ContactModal from '../components/ContactModal.astro';
 		</Section>
 
 		<!-- 7. Método -->
-		<Section fullscreen backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2000&auto=format&fit=crop" overlayTheme="dark">
+		<Section backgroundImage="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2000&auto=format&fit=crop" overlayTheme="dark">
 			<FadeIn className="flex justify-center">
 				<VerticalList items={['Auditar', 'Estructurar', 'Desarrollar', 'Optimizar']} />
 			</FadeIn>
@@ -90,7 +128,7 @@ import ContactModal from '../components/ContactModal.astro';
 
 		<!-- 8. Filtro elegante -->
 		<Section>
-			<div class="grid md:grid-cols-2 gap-16">
+			<div class="grid md:grid-cols-2 gap-10">
 				<FadeIn>
 					<FilterList 
 						title="Trabajamos con:"
@@ -115,7 +153,7 @@ import ContactModal from '../components/ContactModal.astro';
 		</Section>
 
 		<!-- 9. Cierre + CTA -->
-		<Section fullscreen backgroundImage="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop" overlayTheme="light">
+		<Section backgroundImage="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop" overlayTheme="light">
 			<div class="text-center">
 				<FadeIn>
 					<Text variant="statement" className="mb-12">Convirtamos tu idea en software listo para operar.</Text>
@@ -138,15 +176,47 @@ import ContactModal from '../components/ContactModal.astro';
 	.mb-8 { margin-bottom: 2rem; }
 	.mb-12 { margin-bottom: 3rem; }
 	.mt-8 { margin-top: 2rem; }
-	.gap-16 { gap: 4rem; }
-	.gap-24 { gap: 6rem; }
+	.gap-10 { gap: 2.5rem; }
+	.gap-12 { gap: 3rem; }
 	.text-center { text-align: center; }
 	.grid { display: grid; }
 	.flex { display: flex; }
 	.flex-col { flex-direction: column; }
 	.justify-center { justify-content: center; }
+	.showcase-header { margin-bottom: 1.5rem; }
+	.showcase-list { display: grid; gap: 2.5rem; }
+	.showcase-item {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		align-items: center;
+	}
+	.showcase-image {
+		border-radius: 14px;
+		overflow: hidden;
+		box-shadow: 0 18px 40px -16px rgba(0,0,0,0.25);
+		border: 1px solid rgba(0,0,0,0.08);
+	}
+	.showcase-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.6s ease, filter 0.6s ease;
+	}
+	.showcase-item:hover .showcase-image img {
+		transform: scale(1.02);
+		filter: saturate(1.05);
+	}
+	.showcase-copy {
+		display: flex;
+		flex-direction: column;
+	}
 	
 	@media (min-width: 768px) {
 		.md\:grid-cols-2 { grid-template-columns: 1fr 1fr; }
+		.showcase-list { gap: 3rem; }
+		.showcase-item { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+		.showcase-item:nth-child(even) .showcase-image { order: 2; }
+		.showcase-item:nth-child(even) .showcase-copy { order: 1; }
 	}
 </style>
