@@ -1,8 +1,17 @@
-import emailjs from '@emailjs/browser';
-
 const serviceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
 const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
 const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+
+const loadEmailJs = (() => {
+  let cached;
+  return () => {
+    if (!cached) {
+      cached = import('https://cdn.jsdelivr.net/npm/@emailjs/browser@4/+esm')
+        .then((mod) => mod.default ?? mod);
+    }
+    return cached;
+  };
+})();
 
 const setupContactModal = () => {
   const dialog = document.getElementById('contact-modal');
@@ -72,6 +81,7 @@ const setupContactModal = () => {
     if (statusEl) statusEl.textContent = 'Enviando…';
 
     try {
+      const emailjs = await loadEmailJs();
       await emailjs.send(serviceId, templateId, params, { publicKey });
       if (statusEl) statusEl.textContent = 'Propuesta enviada. Te responderemos pronto.';
       form.reset();
