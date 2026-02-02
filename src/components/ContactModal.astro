@@ -1,4 +1,5 @@
 ---
+import contactModalScript from '../scripts/contact-modal.ts?url';
 ---
 <dialog id="contact-modal" class="modal">
   <div class="modal-content fade-in">
@@ -11,7 +12,7 @@
       Cuéntanos sobre tu operación y qué buscas construir.
     </p>
 
-    <form class="contact-form" method="dialog">
+    <form class="contact-form" method="post">
       <div class="form-group">
         <label for="name">Nombre</label>
         <input type="text" id="name" name="name" required placeholder="Tu nombre" />
@@ -35,60 +36,12 @@
       <div class="form-actions">
         <button type="submit" class="submit-btn">Enviar Propuesta</button>
       </div>
+      <p class="form-status" aria-live="polite"></p>
     </form>
   </div>
 </dialog>
 
-<script>
-  const dialog = document.getElementById('contact-modal') as HTMLDialogElement;
-  const closeBtn = document.getElementById('close-modal');
-  // Use class for multiple triggers
-  const openBtns = document.querySelectorAll('.trigger-contact-modal');
-  const form = dialog?.querySelector('form');
-
-  if (dialog) {
-    // Open logic
-    openBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        dialog.showModal();
-        document.body.style.overflow = 'hidden'; // Lock scroll
-      });
-    });
-
-    // Close logic
-    const closeDialog = () => {
-      dialog.close();
-      document.body.style.overflow = ''; // Restore scroll
-    };
-
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeDialog);
-    }
-
-    dialog.addEventListener('click', (e) => {
-      const rect = dialog.getBoundingClientRect();
-      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
-      if (!isInDialog) {
-        closeDialog();
-      }
-    });
-    
-    // Handle escape key
-    dialog.addEventListener('close', () => {
-        document.body.style.overflow = '';
-    });
-  }
-  
-  // Prevent actual submission for demo purposes
-  if (form) {
-      form.addEventListener('submit', (e) => {
-          // If using method="dialog" it doesn't submit, but let's be sure.
-          // For a real implementation, this would handle fetch/XHR
-      });
-  }
-</script>
+<script type="module" src={contactModalScript}></script>
 
 <style>
   .modal {
@@ -225,6 +178,17 @@
 
   .submit-btn:hover {
     opacity: 0.8;
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-status {
+    min-height: 1.25rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
   }
 
   @media (max-width: 768px) {
